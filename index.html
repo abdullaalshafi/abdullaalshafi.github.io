@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Shafi | Ultimate Cyber Robotics & Tech Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --glass-bg: rgba(12, 18, 36, 0.78);
+            --glass-border: rgba(0, 243, 255, 0.4);
+            --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7);
+            --text-color: #ffffff;
+            --text-muted: #94a3b8;
+            --accent-cyan: #00f3ff;
+            --accent-purple: #b000ff;
+            --accent-pink: #ff007f;
+            --accent-gradient: linear-gradient(135deg, #00f3ff 0%, #7000ff 50%, #ff007f 100%);
+            --cyber-glow: 0 0 25px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Massive Immersive Robotics & Cyber Circuit Background */
+        body {
+            background-color: #02040a;
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(0, 243, 255, 0.28) 0%, transparent 40%),
+                radial-gradient(circle at 90% 85%, rgba(176, 0, 255, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.2) 0%, transparent 50%),
+                linear-gradient(rgba(2, 4, 10, 0.85), rgba(2, 4, 10, 0.85)),
+                url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2000&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Futuristic Cyber Grid Lines Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 243, 255, 0.035) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 243, 255, 0.035) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Utility */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 24px;
+        }
+
+        /* 1. Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            z-index: 1000;
+            background: rgba(2, 4, 10, 0.88);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: 0.3s ease;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 12px var(--accent-cyan));
+        }
+
+        .logo span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        /* Main Container layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 120px 0 80px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 2. Hero Section with Cyber Robotics Graphics & Stats */
+        #hero {
+            align-items: center;
+            text-align: center;
+            padding-top: 160px;
+        }
+
+        .hero-wrapper {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 50px;
+            align-items: center;
+            text-align: left;
+            padding: 60px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.6rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.75;
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 15px 20px;
+            border-radius: 14px;
+        }
+
+        .stat-box h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 4px;
+        }
+
+        .stat-box span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-robot-graphics {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .cyber-robot-core {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,243,255,0.25) 0%, rgba(112,0,255,0.15) 70%, transparent 100%);
+            border: 2px dashed var(--accent-cyan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spinCore 18s linear infinite;
+            box-shadow: var(--cyber-glow);
+        }
+
+        .cyber-robot-core i {
+            font-size: 7.5rem;
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 25px var(--accent-cyan));
+            animation: counterSpin 18s linear infinite;
+        }
+
+        @keyframes spinCore {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes counterSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 38px;
+            background: var(--accent-gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 35px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 25px rgba(0, 243, 255, 0.45);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(255, 0, 127, 0.6);
+        }
+
+        /* 3. About Me */
+        .about-card {
+            padding: 55px;
+            display: flex;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-avatar {
+            flex-shrink: 0;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.8rem;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
+            border: 3px solid rgba(255,255,255,0.25);
+        }
+
+        .about-text h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+
+        /* 4. Massive Expanded Skills Section */
+        .skills-container {
+            padding: 55px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .skill-badge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge i {
+            font-size: 1.7rem;
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 10px var(--accent-cyan));
+        }
+
+        .skill-badge:hover {
+            background: rgba(0, 243, 255, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.35);
+        }
+
+        /* 5. Location Maps Section (Narsingdi & NKM) */
+        .maps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .map-card {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #fff;
+        }
+
+        .map-card h3 i {
+            color: var(--accent-pink);
+            filter: drop-shadow(0 0 10px var(--accent-pink));
+        }
+
+        .map-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .map-frame-box {
+            width: 100%;
+            height: 300px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            background: #0b1120;
+        }
+
+        .map-frame-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: contrast(1.15) brightness(0.85);
+        }
+
+        /* 6. FC Mobile Team & Player Cards Section */
+        .fc-container {
+            padding: 55px;
+        }
+
+        .fc-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .fc-header h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--accent-cyan);
+        }
+
+        .fc-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(5, 10, 25, 0.96));
+            border: 2px solid rgba(0, 243, 255, 0.45);
+            border-radius: 22px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 18px 40px rgba(0, 243, 255, 0.35);
+        }
+
+        .player-rating {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #00f3ff;
+            background: rgba(0, 243, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 243, 255, 0.35);
+        }
+
+        .player-pos {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--accent-pink);
+            background: rgba(255, 0, 127, 0.15);
+            padding: 6px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 0, 127, 0.35);
+        }
+
+        .player-avatar-icon {
+            font-size: 4.5rem;
+            margin: 35px 0 20px 0;
+            color: #7000ff;
+            filter: drop-shadow(0 0 15px rgba(112,0,255,0.7));
+        }
+
+        .player-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .player-card span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 7. 10 Random Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .game-card {
+            padding: 35px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 35px rgba(0, 243, 255, 0.3);
+        }
+
+        .game-card i {
+            font-size: 3.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 12px var(--accent-cyan));
+        }
+
+        .game-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* 8. Interactive Features Section (Calculators & Detectors) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-box {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #fff;
+        }
+
+        .feature-box h3 i {
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 12px var(--accent-cyan));
+        }
+
+        .feature-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 14px;
+            margin-top: 5px;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 18px rgba(0, 243, 255, 0.35);
+        }
+
+        .feature-btn {
+            padding: 14px 28px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .feature-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .result-display {
+            padding: 18px;
+            background: rgba(2, 4, 10, 0.75);
+            border-radius: 14px;
+            font-size: 1.05rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0, 243, 255, 0.25);
+        }
+
+        .number-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .number-inputs input {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .number-inputs input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 18px rgba(0, 243, 255, 0.35);
+        }
+
+        /* 9. Contact Section */
+        .contact-card {
+            padding: 65px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .email-btn {
+            font-size: 1.3rem;
+            padding: 18px 45px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 35px 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+            letter-spacing: 0.8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 78px;
+                left: 0;
+                width: 100%;
+                background: rgba(2, 4, 10, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 30px 0;
+                text-align: center;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 35px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-stats-row {
+                justify-content: center;
+            }
+
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .about-avatar {
+                width: 170px;
+                height: 170px;
+                font-size: 3.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navbar -->
+    <nav>
+        <a href="#hero" class="logo"><i class="fa-solid fa-microchip"></i><span>AL SHAFI</span></a>
+        <ul class="nav-links">
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#maps">Location</a></li>
+            <li><a href="#fc-team">FC Team</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#features">Tools</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 2. Hero Section with Cyber Robotics Graphics & Stats -->
+        <section id="hero">
+            <div class="glass-panel hero-wrapper">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span>Al Shafi</span></h1>
+                    <p>An elite Class 8 student at NKM, passionate robotics developer, advanced tech explorer, and competitive FC Mobile strategist crafting the digital future.</p>
+                    <div class="hero-stats-row">
+                        <div class="stat-box">
+                            <h4>Class 8</h4>
+                            <span>NKM Student</span>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Narsingdi</h4>
+                            <span>Bangladesh</span>
+                        </div>
+                        <div class="stat-box">
+                            <h4>12+</h4>
+                            <span>Tech Skills</span>
+                        </div>
+                    </div>
+                    <a href="#features" class="btn">Explore Smart Tools <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-robot-graphics">
+                    <div class="cyber-robot-core">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Me -->
+        <section id="about">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="glass-panel about-card">
+                <div class="about-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <div class="about-text">
+                    <h3>Class 8 Innovator at NKM</h3>
+                    <p>I am a dedicated student currently studying in <strong>Class 8 at NKM</strong> in the vibrant district of <strong>Narsingdi</strong>. My journey revolves around exploring the fascinating worlds of robotics, circuitry, coding, and futuristic web design.</p>
+                    <p>Whether I'm developing web applications, building automated robotics prototypes, or dominating opponents in FC Mobile, I strive for excellence, creativity, and endless learning!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Massive Expanded Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="glass-panel skills-container">
+                <div class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</div>
+                <div class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript Apps</div>
+                <div class="skill-badge"><i class="fa-solid fa-robot"></i> Advanced Robotics</div>
+                <div class="skill-badge"><i class="fa-solid fa-microchip"></i> Arduino & Circuits</div>
+                <div class="skill-badge"><i class="fa-solid fa-puzzle-piece"></i> Scratch Logic</div>
+                <div class="skill-badge"><i class="fa-brands fa-python"></i> Python Programming</div>
+                <div class="skill-badge"><i class="fa-solid fa-flask"></i> Science Lab Projects</div>
+                <div class="skill-badge"><i class="fa-solid fa-network-wired"></i> Network Protocols</div>
+                <div class="skill-badge"><i class="fa-solid fa-gamepad"></i> FC Mobile Strategy</div>
+                <div class="skill-badge"><i class="fa-solid fa-brain"></i> Algorithmic Thinking</div>
+                <div class="skill-badge"><i class="fa-solid fa-terminal"></i> Command Line</div>
+                <div class="skill-badge"><i class="fa-solid fa-shield-halved"></i> Cybersecurity Basics</div>
+            </div>
+        </section>
+
+        <!-- 5. Location Maps (Narsingdi & NKM) -->
+        <section id="maps">
+            <h2 class="section-title">My <span>Location & School</span></h2>
+            <div class="maps-grid">
+                <!-- Narsingdi Location -->
+                <div class="glass-panel map-card">
+                    <h3><i class="fa-solid fa-location-crosshairs"></i> Narsingdi, Bangladesh</h3>
+                    <p>My home district known for its rich heritage, industries, and beautiful riverside scenery.</p>
+                    <div class="map-frame-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116757.06346747585!2d90.655848!3d23.922107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754877e779a1af1%3A0x8e8c1aefb32669b9!2sNarsingdi%20District!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <!-- NKM Location -->
+                <div class="glass-panel map-card">
+                    <h3><i class="fa-solid fa-school-flag"></i> NKM Institution</h3>
+                    <p>My esteemed school campus where I study in Class 8 and cultivate my passion for science and technology.</p>
+                    <div class="map-frame-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.777283921!2d90.716!3d23.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDU1JzMwLjAiTiA5MCU0MnJnMjkuMCJF!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FC Mobile Team & Player Cards -->
+        <section id="fc-team">
+            <div class="glass-panel fc-container">
+                <div class="fc-header">
+                    <h2 class="section-title" style="margin-bottom: 12px;">FC Mobile <span>Ultimate Squad</span></h2>
+                    <p>Explore my powerhouse lineup featuring top-tier legend player cards and elite ratings!</p>
+                </div>
+                <div class="team-grid">
+                    <!-- Player 1 -->
+                    <div class="player-card">
+                        <div class="player-rating">98</div>
+                        <div class="player-pos">ST</div>
+                        <div class="player-avatar-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                        <h4>Ronaldo Nazário</h4>
+                        <span>Icon Striker</span>
+                    </div>
+                    <!-- Player 2 -->
+                    <div class="player-card">
+                        <div class="player-rating">97</div>
+                        <div class="player-pos">LW</div>
+                        <div class="player-avatar-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h4>Vinícius Jr</h4>
+                        <span>TOTS Winger</span>
+                    </div>
+                    <!-- Player 3 -->
+                    <div class="player-card">
+                        <div class="player-rating">96</div>
+                        <div class="player-pos">CM</div>
+                        <div class="player-avatar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4>Jude Bellingham</h4>
+                        <span>TOTY Midfielder</span>
+                    </div>
+                    <!-- Player 4 -->
+                    <div class="player-card">
+                        <div class="player-rating">95</div>
+                        <div class="player-pos">CB</div>
+                        <div class="player-avatar-icon"><i class="fa-solid fa-lock"></i></div>
+                        <h4>Virgil van Dijk</h4>
+                        <span>Wall Defender</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 10 Random Games Section -->
+        <section id="games">
+            <h2 class="section-title">10 Random <span>Fun Games</span></h2>
+            <div class="games-grid">
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h4>Retro Arcade</h4>
+                    <p>Classic pixelated adventures and high-score chasing.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-chess-knight"></i>
+                    <h4>Chess Tactics</h4>
+                    <p>Strategy board game testing critical thinking.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-car-tunnel"></i>
+                    <h4>Speed Racer</h4>
+                    <p>High-octane street racing and drift challenges.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-shield-cat"></i>
+                    <h4>Fantasy RPG</h4>
+                    <p>Dungeon exploration and monster battles.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-cubes"></i>
+                    <h4>Block Builder</h4>
+                    <p>Sandbox world creation and survival crafting.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <h4>Brain Teaser</h4>
+                    <p>Complex logic puzzles and riddle solvers.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-football"></i>
+                    <h4>Penalty Shootout</h4>
+                    <p>Precision goal scoring under intense pressure.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-ghost"></i>
+                    <h4>Maze Escape</h4>
+                    <p>Navigating dark labyrinths before time runs out.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-jet-fighter"></i>
+                    <h4>Space Invaders</h4>
+                    <p>Intergalactic arcade defense shoot-em-up.</p>
+                </div>
+                <div class="glass-panel game-card">
+                    <i class="fa-solid fa-fire"></i>
+                    <h4>Speed Clicker</h4>
+                    <p>Test your finger reflexes and reaction speed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Interactive Features Section (Leap Year, Even/Odd, Small/Big Detectors) -->
+        <section id="features">
+            <h2 class="section-title">Interactive <span>Smart Tools</span></h2>
+            <div class="features-grid">
+                <!-- Feature 1: Leap Year Detector -->
+                <div class="glass-panel feature-box">
+                    <h3><i class="fa-solid fa-calendar-days"></i> Leap Year Detector</h3>
+                    <p>Enter any year to check whether it is a leap year or a normal year.</p>
+                    <div class="input-group">
+                        <input type="number" id="yearInput" placeholder="e.g. 2026">
+                        <button class="feature-btn" onclick="checkLeapYear()">Check</button>
+                    </div>
+                    <div class="result-display" id="leapResult">Result will appear here...</div>
+                </div>
+
+                <!-- Feature 2: Even & Odd Number Detector -->
+                <div class="glass-panel feature-box">
+                    <h3><i class="fa-solid fa-calculator"></i> Even & Odd Detector</h3>
+                    <p>Type an integer to find out if it's an even or odd number.</p>
+                    <div class="input-group">
+                        <input type="number" id="evenOddInput" placeholder="e.g. 42">
+                        <button class="feature-btn" onclick="checkEvenOdd()">Detect</button>
+                    </div>
+                    <div class="result-display" id="evenOddResult">Result will appear here...</div>
+                </div>
+
+                <!-- Feature 3: Small & Big Number Detector -->
+                <div class="glass-panel feature-box">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Small & Big Detector</h3>
+                    <p>Compare two numbers to instantly see which one is smaller and larger.</p>
+                    <div class="number-inputs">
+                        <input type="number" id="num1Input" placeholder="First number">
+                        <input type="number" id="num2Input" placeholder="Second number">
+                        <button class="feature-btn" onclick="compareNumbers()">Compare</button>
+                    </div>
+                    <div class="result-display" id="compareResult">Result will appear here...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="glass-panel contact-card">
+                <p>Want to collaborate on a robotics project, discuss school science experiments, or challenge me in FC Mobile? Reach out anytime!</p>
+                <a href="mailto:alshafi@example.com" class="btn email-btn"><i class="fa-solid fa-envelope"></i> Send Me An Email</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Al Shafi. NKM Class 8 Student. Powered by Robotics & Code.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Mobile Menu, Active States, and Smart Tools -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-xmark');
+                hamburger.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if(item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Feature 1: Leap Year Detector Logic
+        function checkLeapYear() {
+            const year = parseInt(document.getElementById('yearInput').value);
+            const resBox = document.getElementById('leapResult');
+            
+            if(isNaN(year)) {
+                resBox.innerText = "Please enter a valid year!";
+                return;
+            }
+
+            if((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                resBox.innerText = `${year} is a Leap Year! 🟢`;
+            } else {
+                resBox.innerText = `${year} is NOT a Leap Year. 🔴`;
+            }
+        }
+
+        // Feature 2: Even & Odd Number Detector Logic
+        function checkEvenOdd() {
+            const num = parseInt(document.getElementById('evenOddInput').value);
+            const resBox = document.getElementById('evenOddResult');
+
+            if(isNaN(num)) {
+                resBox.innerText = "Please enter a valid number!";
+                return;
+            }
+
+            if(num % 2 === 0) {
+                resBox.innerText = `${num} is an EVEN number! 🔵`;
+            } else {
+                resBox.innerText = `${num} is an ODD number! 🟣`;
+            }
+        }
+
+        // Feature 3: Small & Big Number Detector Logic
+        function compareNumbers() {
+            const n1 = parseFloat(document.getElementById('num1Input').value);
+            const n2 = parseFloat(document.getElementById('num2Input').value);
+            const resBox = document.getElementById('compareResult');
+
+            if(isNaN(n1) || isNaN(n2)) {
+                resBox.innerText = "Please enter both numbers!";
+                return;
+            }
+
+            if(n1 > n2) {
+                resBox.innerText = `${n1} is Larger (Big), ${n2} is Smaller (Small).`;
+            } else if(n2 > n1) {
+                resBox.innerText = `${n2} is Larger (Big), ${n1} is Smaller (Small).`;
+            } else {
+                resBox.innerText = `Both numbers (${n1}) are equal!`;
+            }
+        }
+    </script>
+</body>
+</html>
